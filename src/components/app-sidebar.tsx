@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Link } from "react-router-dom"
 
 import {
   Sidebar,
@@ -19,16 +20,15 @@ const data = {
   navMain: [
     {
       title: "Finance App",
-      url: "#",
+      url: "/",
       items: [
         {
           title: "Dashboard",
-          url: "#",
+          url: "/dashboard",
         },
         {
           title: "Budget",
-          url: "#",
-          isActive: true,
+          url: "/budget",
         },
       ],
     },
@@ -49,8 +49,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               <SidebarMenu>
                 {item.items.map((item) => (
                   <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton asChild isActive={item.isActive}>
-                      <a href={item.url}>{item.title}</a>
+                    <SidebarMenuButton asChild>
+                      <Link to={item.url}>{item.title}</Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
